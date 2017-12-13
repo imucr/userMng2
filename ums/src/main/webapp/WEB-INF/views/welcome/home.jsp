@@ -7,9 +7,15 @@
     href="${pageContext.request.contextPath}/resources/app/css/styles.css">
 </head>
 <body>
-    <div id="wrapper">
-        <h1>Hello world!</h1>
-        <p>The time on the server is ${serverTime}.</p>
-    </div>
+
+<center>
+任意リンク for実装<br><br>
+
+<a href="http://localhost:8080/ums/login?form">最初の画面</a><br>
+<a href="http://localhost:8080/ums/user/delete?form&userId=a">削除対象データ出力</a>
+<a href="http://localhost:8080/ums/user/delete">削除完了</a>
+
+</center>
+
 </body>
 </html>

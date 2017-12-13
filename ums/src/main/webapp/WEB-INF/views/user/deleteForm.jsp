@@ -1,44 +1,48 @@
 <%@include file="/WEB-INF/views/common/header.jsp"%>
+<%@page import="java.io.*"%>
+
 
 <div align="center">
+
+
 	<table border="0">
-		<tr>
-			<td align="right">ユーザーID:</td>
-			<td>${userId}</td>
-		</tr>
+		<c:forEach items="${deleteList}" var="deleteList">
+			<tr>
+				<td align="right">ユーザID:</td>
+				<td>${deleteList.user_id}</td>
+			</tr>
+			<tr>
+				<td align="right">名前:</td>
+				<td>${deleteList.name}</td>
+			</tr>
+			<tr>
+				<td align="right">生年月日:</td>
+				<td>${deleteList.birth}</td>
+			</tr>
+			<tr>
+				<td align="right">住所:</td>
+				<td>${deleteList.address}</td>
+			</tr>
+			<tr>
+				<td align="right">電話番号:</td>
+				<td>${deleteList.pn}</td>
+			</tr>
+			<tr>
+				<td align="right">権限:</td>
+				<td>${deleteList.status}</td>
+			</tr>
 
-		<tr>
-			<td align="right">名前:</td>
-			<td>${username}</td>
-		</tr>
-
-		<tr>
-			<td align="right">生年月日:</td>
-			<td>${birthDay}</td>
-		</tr>
-		
-		<tr>
-			<td align="right">住所:</td>
-			<td>${address}</td>
-		</tr>
-		
-		<tr>
-			<td align="right">電話番号:</td>
-			<td>${telNum}</td>
-		</tr>						
-
-		<tr>
-			<td align="right">権限:</td>
-			<td>${roles}	</td>
-		</tr>
-				
+		</c:forEach>
 	</table>
 
-<form action="${pageContext.request.contextPath}/user/delete" method="get"> <!-- FIXME POSTに修正 -->
-	
-	<input type="submit" name="confirm" value="削除" />
+	<form action="${pageContext.request.contextPath}/user/delete"
+		method="get">
+		<!-- FIXME POST -->
 
-</form>
+		<input type="submit" name="confirm" value="削除" />
+	</form>
+
+
 </div>
 
 
