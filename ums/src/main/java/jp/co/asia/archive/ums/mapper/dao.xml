@@ -5,6 +5,10 @@
 
 <mapper namespace="jp.co.asia.archive.ums.domain.repository.UmsDAO"><!-- MEMO mapper sqlは　from. http://www.mybatis.org/mybatis-3/ja/sqlmap-xml.html#select -->
 
+	<select id="list" parameterType="map" resultType="jp.co.asia.archive.ums.domain.model.UVO">
+        select user_id, name, birth, address, pn, status, updated from t_user where user_id=#{user_id} and name=#{name} and birth=#{birth} and address=#{address} and pn=#{pn} and status=#{status} and updated=#{updated}
+	</select>
+
 	<select id="deleteList" parameterType="String" resultType="jp.co.asia.archive.ums.domain.model.UVO">
         select user_id, name, birth, address, pn, status from t_user where user_id=#{user_id}
 	</select>
