@@ -73,13 +73,13 @@ public class UVO {
   }
 
   public String getPw() {
-	    return pw;
-	  }
+    return pw;
+  }
 
-	  public void setPw(String pw) {
-	    this.pw = pw;
-	  }  
-  
+  public void setPw(String pw) {
+    this.pw = pw;
+  }
+
   public String getStatus() {
     return status;
   }
@@ -95,6 +95,4 @@ public class UVO {
   public void setUpdated(String updated) {
     this.updated = updated;
   }
-
-
 }
