@@ -1,7 +1,7 @@
 <%@include file="/WEB-INF/views/common/header.jsp"%>
 
 <div align="center">
-	<table border="0">
+	<table border="0">	
 <%--	
 		<tr>
 			<td align="right">ユーザID:</td>

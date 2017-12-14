@@ -29,7 +29,7 @@ public class RegisterController {
       
 //臨時
       @RequestMapping(value = "/register", params="confirm", method = RequestMethod.GET) //FIXME POSTに修正
-      public String registerConfirm(HttpServletRequest req, @RequestParam("roles") String roles) {
+      public String registerConfirm(HttpServletRequest req, @RequestParam(value="roles", required=false) String roles) { //FIXME parameterなしに
     	  
     	  HttpSession session=req.getSession();
     	  session.setAttribute("roles", roles);
