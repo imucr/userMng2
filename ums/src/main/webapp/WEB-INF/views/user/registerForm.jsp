@@ -5,7 +5,7 @@
 <div align="center">
 <form action="${pageContext.request.contextPath}/user/register" method="get"> <!-- FIXME postä¿®æ­£ -->
 	<table border="1">
-<%-- 		<tr>
+ 		<tr>
 			<td align="right">ユーザID:</td>
 			<td><input type="text" name="userId"/></td>
 		</tr>
@@ -29,16 +29,19 @@
 			<td align="right">電話番号:</td>
 			<td><input type="text" name="telNum" value=""/></td>
 		</tr>						
---%>
+
+
+<!--  
 		<tr>
 			<td align="right">権限:</td>
 			<td>
 				<input type="checkbox" name="roles">ADMIN
-				<!--  <input type="checkbox" name="roles2">USER -->
+				<input type="checkbox" name="roles2">USER 
 			</td>
-		</tr>
+		</tr> 
+-->
 				
-<%-- 		<tr>
+ 		<tr>
 			<td align="right">パスワード:</td>
 			<td><input type="password" name="password" /></td>
 		</tr>		
@@ -47,7 +50,6 @@
 			<td align="right">パスワード確認:</td>
 			<td><input type="password" name="confirmPassword" /></td>
 		</tr>
---%>
 				
 	</table>
 	

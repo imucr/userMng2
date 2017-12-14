@@ -1,66 +1,60 @@
 <%@include file="/WEB-INF/views/common/header.jsp"%>
 
-<%
-String roles=(String)session.getAttribute("roles");
-%>	
 
 <div align="center">
-	<table border="0">	
+	<table border="0">
 
-<%--	
+
 		<tr>
 			<td align="right">ユーザID:</td>
-		<td><%=session.getAttribute("userId")%></td>
+			<td><%=session.getAttribute("userId")%></td>
 		</tr>
 
- 
+
 		<tr>
 			<td align="right">名前:</td>
-			<td>${username}</td>
+			<td><%=session.getAttribute("username")%></td>
 		</tr>
 
 		<tr>
 			<td align="right">生年月日:</td>
-			<td>${birthDay}</td>
+			<td><%=session.getAttribute("birthDay")%></td>
 		</tr>
-		
+
 		<tr>
 			<td align="right">住所:</td>
-			<td>${address}</td>
+			<td><%=session.getAttribute("address")%></td>
 		</tr>
-		
+
 		<tr>
 			<td align="right">電話番号:</td>
-			<td>${telNum}</td>
-		</tr>						
---%>
+			<td><%=session.getAttribute("telNum")%></td>
+		</tr>
+
+		<%--
 		<tr>
 			<td align="right">権限:</td>
 			<td><%=result(roles)%></td>
 		</tr>
+--%>
 
-				
 	</table>
 
-<form action="${pageContext.request.contextPath}/user/register" method="get"> <!-- FIXME POST -->
-	
-	<input type="submit" value="確認"/>
-	<input type="submit" name="redo" value="やり直し" />
-		<!-- FIXME　POST　-->
-		
-</form>
+
+	<form action="${pageContext.request.contextPath}/user/register"
+		method="get">
+		<!-- FIXME POST -->
+		<input type="submit" value="確認" />
+	</form>
+
+	<form action="${pageContext.request.contextPath}/user/register"
+		method="get">
+		<!-- FIXME POST -->
+		<input type="submit" name="redo" value="やり直し" />
+	</form>
+
 </div>
 
 
 
 <%@include file="/WEB-INF/views/common/footer.jsp"%>
-
-<%!
-private String result(String roles) {
-	if (roles == null) //QUESTION なんでif(roles.equals("on"))から始めちゃダメか
-		return "";
-	else
-		return "ADMIN";
-
-}
-%>

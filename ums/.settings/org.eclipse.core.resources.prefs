@@ -5,6 +5,7 @@ encoding//src/main/webapp/WEB-INF/views/user/deleteConfirm.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/user/deleteFinish.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/user/deleteForm.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/user/registerConfirm.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/user/registerFinish.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/user/registerForm.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/user/searchForm.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/user/searchList.jsp=UTF-8
