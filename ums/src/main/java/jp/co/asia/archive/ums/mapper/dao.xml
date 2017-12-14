@@ -3,18 +3,31 @@
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="jp.co.asia.archive.ums.domain.repository.UmsDAO"><!-- MEMO mapper sqlは　from. http://www.mybatis.org/mybatis-3/ja/sqlmap-xml.html#select -->
+<mapper namespace="jp.co.asia.archive.ums.domain.repository.UmsDAO"><!-- MEMO mapper sqlは from. http://www.mybatis.org/mybatis-3/ja/sqlmap-xml.html#select -->
 
-	<select id="list" parameterType="map" resultType="jp.co.asia.archive.ums.domain.model.UVO">
-        select user_id, name, birth, address, pn, status, updated from t_user where user_id=#{user_id} and name=#{name} and birth=#{birth} and address=#{address} and pn=#{pn} and status=#{status} and updated=#{updated}
+	<insert id="register">
+		insert into t_user (user_id, name, birth, address, pn, pw, status,
+		updated) <!-- FIXME status, updatedは別途処理 -->
+		values
+		(#{userId},#{username},#{birthDay},#{address},#{telNum},#{password},"aa","aa")
+	</insert>
+
+	<select id="list" parameterType="map"
+		resultType="jp.co.asia.archive.ums.domain.model.UVO">
+		select user_id, name, birth, address, pn, status, updated from t_user where
+		user_id=#{user_id} and name=#{name} and birth=#{birth} and
+		address=#{address} and pn=#{pn} and status=#{status} and
+		updated=#{updated}
 	</select>
 
-	<select id="deleteList" parameterType="String" resultType="jp.co.asia.archive.ums.domain.model.UVO">
-        select user_id, name, birth, address, pn, status from t_user where user_id=#{user_id}
+	<select id="deleteList" parameterType="String"
+		resultType="jp.co.asia.archive.ums.domain.model.UVO">
+		select user_id, name, birth, address, pn, status from t_user where
+		user_id=#{user_id}
 	</select>
-	 	
+
 	<delete id="delete" parameterType="String">
-	    delete from t_user where user_id=#{user_id}
-	</delete> 	
-	
+		delete from t_user where user_id=#{user_id}
+	</delete>
+
 </mapper>
