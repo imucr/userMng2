@@ -1,7 +1,12 @@
 <%@include file="/WEB-INF/views/common/header.jsp"%>
 
+<%
+String roles=(String)session.getAttribute("roles");
+%>	
+
 <div align="center">
 	<table border="0">	
+
 <%--	
 		<tr>
 			<td align="right">ユーザID:</td>
@@ -31,7 +36,7 @@
 --%>
 		<tr>
 			<td align="right">権限:</td>
-			<td><%=session.getAttribute("roles")%></td>
+			<td><%=result(roles)%></td>
 		</tr>
 
 				
@@ -47,4 +52,15 @@
 </div>
 
 
+
 <%@include file="/WEB-INF/views/common/footer.jsp"%>
+
+<%!
+private String result(String roles) {
+	if (roles == null) //QUESTION なんでif(roles.equals("on"))から始めちゃダメか
+		return "";
+	else
+		return "ADMIN";
+
+}
+%>
