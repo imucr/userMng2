@@ -1,10 +1,10 @@
 <%@include file="/WEB-INF/views/common/header.jsp"%>
 
 <div align="center">
-<form action="${pageContext.request.contextPath}/top" method="GET"> <!-- FIXME postに修正 -->
+<form action="${pageContext.request.contextPath}/top" method="GET"> <!-- FIXME postã«ä¿®æ­£ -->
 	<table border="0">
 		<tr>
-			<td>ユーザーID:</td>
+			<td>ユーザID:</td>
 			<td><input type="text" name="userId" /></td>
 		</tr>
 		
@@ -16,6 +16,9 @@
 	
 	<input type="submit" value="ログイン"/>
 </form>
+
+<input type="button" onclick="location.href='${pageContext.request.contextPath}/user/register?form'" value="初期登録" />
+
 </div>
 
 <%@include file="/WEB-INF/views/common/footer.jsp"%>
