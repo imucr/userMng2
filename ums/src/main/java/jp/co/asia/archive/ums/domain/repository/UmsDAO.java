@@ -28,5 +28,5 @@ public interface UmsDAO {
       @Param("birthDay") String birthDay,
       @Param("address") String address,
       @Param("telNum") String telNum,
-      @Param("password") String password);
+      @Param("password") String password, @Param("formattedDate") String formattedDate);
 }
