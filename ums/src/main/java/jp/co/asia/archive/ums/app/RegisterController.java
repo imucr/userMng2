@@ -1,5 +1,9 @@
 package jp.co.asia.archive.ums.app;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -61,7 +65,7 @@ public class RegisterController {
   }
 
   @RequestMapping(value = "/register", method = RequestMethod.GET) //FIXME POSTに修正
-  public String register(Model model, HttpServletRequest req) {
+  public String register(Model model, HttpServletRequest req, Locale locale) {
 
     HttpSession session = req.getSession();
     String userId = (String) session.getAttribute("userId");
@@ -72,8 +76,15 @@ public class RegisterController {
     String telNum = (String) session.getAttribute("telNum");
     String password = (String) session.getAttribute("password");
 
+    // MEMO Q. How to get client current date and time in server side ??? A. Get the time from the client side and send it to server. →全然効かない
+    Date date = new Date();
+    SimpleDateFormat dateFormat = new SimpleDateFormat("M/dd/yy HH:mm");
+    String formattedDate = dateFormat.format(date);
+    		System.out.println("現在日時は"+formattedDate);
+    		
+    
     UmsDAO dao = sqlSession.getMapper(UmsDAO.class);
-    dao.register(userId, username, birthDay, address, telNum, password);
+    dao.register(userId, username, birthDay, address, telNum, password, formattedDate);
 
     return "redirect:/user/register?finish";
   }
