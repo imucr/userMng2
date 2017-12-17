@@ -131,4 +131,10 @@
         <property name="trimTokens" value="false" />
     </bean>
 
+<!--  
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="message.error" />
+	</bean>
+-->
+
 </beans>

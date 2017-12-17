@@ -12,7 +12,7 @@ public class UVO2 {
 
   public UVO2() {}
 
-  public UVO2(
+  public UVO2( //QUESTION このコードのままでは、オブジェクト生成と同時にパラメターを入れなければならないんじゃない？でもなんでそうしなくてもよく作動するんだろう
       String userId,
       String username,
       String birthDay,

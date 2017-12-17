@@ -11,11 +11,14 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import jp.co.asia.archive.ums.domain.model.UVO2;
 import jp.co.asia.archive.ums.domain.repository.UmsDAO;
+import jp.co.asia.archive.ums.validation.UVO2Validator;
 
 @Controller
 @RequestMapping("/user")
@@ -34,10 +37,16 @@ public class RegisterController {
     params = "confirm",
     method = RequestMethod.GET
   ) //FIXME POSTに修正
-  public String registerConfirm(UVO2 uvo2, HttpServletRequest req) {
+  public String registerConfirm(@ModelAttribute("uvo2") UVO2 uvo2, BindingResult br, HttpServletRequest req) {
     //QUESTION ただのParam vs. RequestParam?
+	//QUESTION ModelAttributeは単にコマンドオブジェクト名を短くする機能だけではないみたい。これつけないとViewでエラーメッセージ出ない
     //TODO checkboxの値も受け入れるように
 
+	  new UVO2Validator().validate(uvo2, br);
+	  if(br.hasErrors()){
+		  return "user/registerForm";
+	  }
+	  
     HttpSession session = req.getSession();
     session.setAttribute("userId", uvo2.getUserId());
     session.setAttribute("username", uvo2.getUsername());
