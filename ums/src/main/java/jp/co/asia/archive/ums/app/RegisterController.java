@@ -13,8 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
+import jp.co.asia.archive.ums.domain.model.UVO2;
 import jp.co.asia.archive.ums.domain.repository.UmsDAO;
 
 @Controller
@@ -34,26 +34,18 @@ public class RegisterController {
     params = "confirm",
     method = RequestMethod.GET
   ) //FIXME POSTに修正
-  public String registerConfirm(
-      @RequestParam("userId") String userId,
-      @RequestParam("username") String username,
-      @RequestParam("birthDay") String birthDay,
-      @RequestParam("address") String address,
-      @RequestParam("telNum") String telNum,
-      @RequestParam("password") String password,
-      @RequestParam("confirmPassword") String confirmPassword,
-      HttpServletRequest req) {
+  public String registerConfirm(UVO2 uvo2, HttpServletRequest req) {
     //QUESTION ただのParam vs. RequestParam?
     //TODO checkboxの値も受け入れるように
 
     HttpSession session = req.getSession();
-    session.setAttribute("userId", userId);
-    session.setAttribute("username", username);
-    session.setAttribute("birthDay", birthDay);
-    session.setAttribute("address", address);
-    session.setAttribute("telNum", telNum);
-    session.setAttribute("password", password);
-    session.setAttribute("confirmPassword", confirmPassword);
+    session.setAttribute("userId", uvo2.getUserId());
+    session.setAttribute("username", uvo2.getUsername());
+    session.setAttribute("birthDay", uvo2.getBirthDay());
+    session.setAttribute("address", uvo2.getAddress());
+    session.setAttribute("telNum", uvo2.getTelNum());
+    session.setAttribute("password", uvo2.getPassword());
+    session.setAttribute("confirmPassword", uvo2.getConfirmPassword());
 
     return "user/registerConfirm";
   }
