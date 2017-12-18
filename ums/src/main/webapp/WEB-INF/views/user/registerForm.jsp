@@ -8,7 +8,7 @@
 	<spring:hasBindErrors name="uvo2" />
 	<form action="${pageContext.request.contextPath}/user/register"
 		method="get">
-		<!-- FIXME postä¿®æ­£ -->
+		<!-- FIXME post -->
 		<table border="1">
 			<tr>
 				<td align="right">ユーザID:</td>
