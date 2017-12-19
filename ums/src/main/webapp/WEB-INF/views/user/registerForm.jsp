@@ -18,22 +18,26 @@
 
 			<tr>
 				<td align="right">名前:</td>
-				<td><input type="text" name="username" value="" /></td>
+				<td><input type="text" name="username" value="" /> <form:errors
+						path="uvo2.username" /></td>
 			</tr>
 
 			<tr>
 				<td align="right">生年月日:</td>
-				<td><input type="text" name="birthDay" value="" /></td>
+				<td><input type="text" name="birthDay" value="" /> <form:errors
+						path="uvo2.birthDay" /></td>
 			</tr>
 
 			<tr>
 				<td align="right">住所:</td>
-				<td><input type="text" name="address" value="" /></td>
+				<td><input type="text" name="address" value="" /> <form:errors
+						path="uvo2.address" /></td>
 			</tr>
 
 			<tr>
 				<td align="right">電話番号:</td>
-				<td><input type="text" name="telNum" value="" /></td>
+				<td><input type="text" name="telNum" value="" /> <form:errors
+						path="uvo2.telNum" /></td>
 			</tr>
 
 
@@ -49,12 +53,14 @@
 
 			<tr>
 				<td align="right">パスワード:</td>
-				<td><input type="password" name="password" /></td>
+				<td><input type="password" name="password" /> <form:errors
+						path="uvo2.password" /></td>
 			</tr>
 
 			<tr>
 				<td align="right">パスワード確認:</td>
-				<td><input type="password" name="confirmPassword" /></td>
+				<td><input type="password" name="confirmPassword" /> <form:errors
+						path="uvo2.confirmPassword" /></td>
 			</tr>
 
 		</table>
