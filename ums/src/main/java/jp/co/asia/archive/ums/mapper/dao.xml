@@ -30,4 +30,9 @@
 		update t_user set status="RMVD" where user_id=#{user_id}
 	</delete>
 
+<!-- 	<select id="IdDuplicateCheck" parameterType="String"
+		resultType="jp.co.asia.archive.ums.domain.model.UVO2">
+		select user_id from t_user where user_id=#{user_id}
+	</select> -->
+	
 </mapper>
