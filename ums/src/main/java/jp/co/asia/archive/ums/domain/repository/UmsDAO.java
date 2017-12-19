@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.apache.ibatis.annotations.Param;
 
 import jp.co.asia.archive.ums.domain.model.UVO;
+import jp.co.asia.archive.ums.domain.model.UVO2;
 
 public interface UmsDAO {
 
@@ -29,4 +30,7 @@ public interface UmsDAO {
       @Param("address") String address,
       @Param("telNum") String telNum,
       @Param("password") String password, @Param("formattedDate") String formattedDate);
+
+//  public UVO2 IdDuplicateCheck(String userId);
+
 }

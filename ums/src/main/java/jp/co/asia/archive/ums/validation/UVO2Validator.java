@@ -1,5 +1,6 @@
 package jp.co.asia.archive.ums.validation;
 
+
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
@@ -7,6 +8,8 @@ import jp.co.asia.archive.ums.domain.model.UVO2;
 
 public class UVO2Validator implements Validator {
 
+//	  @Autowired private SqlSession sqlSession;
+	
   @Override
   public boolean supports(Class<?> arg0) {
     return UVO2.class.isAssignableFrom(arg0);
@@ -24,6 +27,14 @@ public class UVO2Validator implements Validator {
       errors.rejectValue("userId", "userIdMessage");
     }
 
+//    //userID重複チェック
+//    UmsDAO dao=sqlSession.getMapper(UmsDAO.class);
+//    UVO2 uvo2_2 = dao.IdDuplicateCheck(userId);
+//    String originalUserId=uvo2_2.getUserId();
+//    if(userId.equals(originalUserId)){
+//        errors.rejectValue("userId", "userIdDuplicateMessage");
+//    }
+    
     //username 30文字まで
     String username=uvo2.getUsername();
     if(username.length()==0 || username.length()>30){
@@ -61,7 +72,7 @@ public class UVO2Validator implements Validator {
     
     //confirmPassword
     String confirmPassword=uvo2.getConfirmPassword();
-    if(!confirmPassword.equals(password)){ //QUESTIOM password変数を何気なく使うことができる理由？
+    if(!confirmPassword.equals(password)){ //QUESTIOM password変数を何気なく使うことができる理由？ ANSWER 同一位置
         errors.rejectValue("confirmPassword", "confirmPasswordMessage");
     }
     
