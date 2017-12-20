@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import org.apache.ibatis.annotations.Param;
 
 import jp.co.asia.archive.ums.domain.model.UVO;
-import jp.co.asia.archive.ums.domain.model.UVO2;
 
 public interface UmsDAO {
 
@@ -29,8 +28,20 @@ public interface UmsDAO {
       @Param("birthDay") String birthDay,
       @Param("address") String address,
       @Param("telNum") String telNum,
-      @Param("password") String password, @Param("formattedDate") String formattedDate);
+      @Param("password") String password,
+      @Param("formattedDate") String formattedDate);
 
-//  public UVO2 IdDuplicateCheck(String userId);
+  public ArrayList<UVO> updateList(String user_id);
+
+  public void update(
+      @Param("username") String username,
+      @Param("birthDay") String birthDay,
+      @Param("address") String address,
+      @Param("telNum") String telNum,
+      @Param("password") String password,
+//      @Param("formattedDate") String formattedDate, 
+      @Param("userId") String userId);
+
+  //  public UVO2 IdDuplicateCheck(String userId);
 
 }
