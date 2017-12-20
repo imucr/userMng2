@@ -20,82 +20,79 @@ import jp.co.asia.archive.ums.domain.model.UVO;
 import jp.co.asia.archive.ums.domain.model.UVO2;
 import jp.co.asia.archive.ums.domain.repository.UmsDAO;
 
-
-
-
 //TODO Javadoc
 
 @Controller
 @RequestMapping("/user")
 public class UpdateController {
-	
-	  @Autowired private SqlSession sqlSession;
 
-      @RequestMapping(value = "/update", params="form", method = RequestMethod.GET)
-      public String updateForm(HttpServletRequest req, Model model, @RequestParam("userId")
-      String
-      user_id) {
+  @Autowired private SqlSession sqlSession;
 
-    	    UmsDAO dao = sqlSession.getMapper(UmsDAO.class);
-    	    ArrayList<UVO> uvo = dao.updateList(user_id);
-    	    model.addAttribute("updateList", uvo);
+  @RequestMapping(value = "/update", params = "form", method = RequestMethod.GET)
+  public String updateForm(
+      HttpServletRequest req, Model model, @RequestParam("userId") String user_id) {
 
-    	    HttpSession session = req.getSession();
-    	    session.setAttribute("userId", user_id);
-    	    System.out.println("SESSIONに値入った");
-    	    
-        return "user/updateForm";
-      }      
+    UmsDAO dao = sqlSession.getMapper(UmsDAO.class);
+    ArrayList<UVO> uvo = dao.updateList(user_id);
+    model.addAttribute("updateList", uvo);
 
-      @RequestMapping(value = "/update", params="confirm", method = RequestMethod.GET) //FIXME POSTに
-      public String updateConfirm(@ModelAttribute("uvo2") UVO2 uvo2, HttpServletRequest req) {
+    HttpSession session = req.getSession();
+    session.setAttribute("userId", user_id);
+    System.out.println("SESSIONに値入った");
 
-    	  	HttpSession session =req.getSession();
-    	    session.setAttribute("username", uvo2.getUsername());
-    	    session.setAttribute("birthDay", uvo2.getBirthDay());
-    	    session.setAttribute("address", uvo2.getAddress());
-    	    session.setAttribute("telNum", uvo2.getTelNum());
-    	    session.setAttribute("password", uvo2.getPassword());
-    	    session.setAttribute("confirmPassword", uvo2.getConfirmPassword());    	  	
-    	    
-        return "user/updateConfirm";
-      }   
+    return "user/updateForm";
+  }
 
-      @RequestMapping(value = "/update", params="redo", method = RequestMethod.GET) //FIXME POSTに
-      public String redo() {
+  @RequestMapping(value = "/update", params = "confirm", method = RequestMethod.GET) //FIXME POSTに
+  public String updateConfirm(@ModelAttribute("uvo2") UVO2 uvo2, HttpServletRequest req) {
 
-        return "user/updateForm";
-      }         
-      
-      @RequestMapping(value = "/update", method = RequestMethod.GET) //FIXME POSTに
-      public String update(HttpServletRequest req) {
-    	  	
-    	  	HttpSession session = req.getSession();
-    	    String userId = (String) session.getAttribute("userId");
-    	    String username = (String) session.getAttribute("username");
-    	    String birthDay = (String) session.getAttribute("birthDay");
-    	    String address = (String) session.getAttribute("address");
-    	    String telNum = (String) session.getAttribute("telNum");
-    	    String password = (String) session.getAttribute("password");
+    HttpSession session = req.getSession();
+    session.setAttribute("username", uvo2.getUsername());
+    session.setAttribute("birthDay", uvo2.getBirthDay());
+    session.setAttribute("address", uvo2.getAddress());
+    session.setAttribute("telNum", uvo2.getTelNum());
+    session.setAttribute("password", uvo2.getPassword());
+    session.setAttribute("confirmPassword", uvo2.getConfirmPassword());
 
-    	    Date date = new Date();
-    	    SimpleDateFormat dateFormat = new SimpleDateFormat("M/dd/yy HH:mm");
-    	    String formattedDate = dateFormat.format(date);
-    	    		System.out.println("現在日時は"+formattedDate);
-    	    
-    	    
-    	    UmsDAO dao = sqlSession.getMapper(UmsDAO.class);
-    	    dao.update(username, birthDay, address, telNum, password, formattedDate, userId);
-//    	    dao.update(username, birthDay, address, telNum, password, userId);
-    	    
-    	  	return "redirect:/user/update?finish";
-      }   
+    return "user/updateConfirm";
+  }
 
-      @RequestMapping(value = "/update", params="finish", method = RequestMethod.GET)
-      public String updateFinish() {
+  @RequestMapping(value = "/update", params = "redo", method = RequestMethod.GET) //FIXME POSTに
+  public String redo(HttpServletRequest req, Model model) {
+	  HttpSession session=req.getSession();
+	    String user_id = (String) session.getAttribute("userId");
+	    UmsDAO dao=sqlSession.getMapper(UmsDAO.class);
+	    ArrayList<UVO> uvo = dao.updateList(user_id);
+	    model.addAttribute("updateList", uvo);
 
-        return "user/updateFinish";
-      }   
-       
-      
+    return "user/updateForm";
+  }
+
+  @RequestMapping(value = "/update", method = RequestMethod.GET) //FIXME POSTに
+  public String update(HttpServletRequest req) {
+
+    HttpSession session = req.getSession();
+    String userId = (String) session.getAttribute("userId");
+    String username = (String) session.getAttribute("username");
+    String birthDay = (String) session.getAttribute("birthDay");
+    String address = (String) session.getAttribute("address");
+    String telNum = (String) session.getAttribute("telNum");
+    String password = (String) session.getAttribute("password");
+
+    Date date = new Date();
+    SimpleDateFormat dateFormat = new SimpleDateFormat("M/dd/yy HH:mm");
+    String formattedDate = dateFormat.format(date);
+    System.out.println("現在日時は" + formattedDate);
+
+    UmsDAO dao = sqlSession.getMapper(UmsDAO.class);
+    dao.update(username, birthDay, address, telNum, password, formattedDate, userId);
+
+    return "redirect:/user/update?finish";
+  }
+
+  @RequestMapping(value = "/update", params = "finish", method = RequestMethod.GET)
+  public String updateFinish() {
+
+    return "user/updateFinish";
+  }
 }

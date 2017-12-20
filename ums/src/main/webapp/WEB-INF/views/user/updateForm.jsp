@@ -3,6 +3,8 @@
 <!-- TODO validation機能実装 -->
 
 <div align="center">
+<h2>updateForm</h2>
+
 <form action="${pageContext.request.contextPath}/user/update" method="get"><!-- FIXME POSTに -->
 	<table border="0">
 			<c:forEach items="${updateList}" var="updateList"><!-- QUESTION forEach付けないと、値出力できないんだろう-->
