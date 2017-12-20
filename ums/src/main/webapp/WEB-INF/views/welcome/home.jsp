@@ -14,6 +14,7 @@
 <a href="http://localhost:8080/ums/login?form">最初の画面</a><br>
 <a href="http://localhost:8080/ums/user/delete?form&userId=a">削除対象データ出力</a>
 <a href="http://localhost:8080/ums/user/register?form">登録画面</a>
+<a href="http://localhost:8080/ums/user/update?form&userId=a">更新場面</a>
 </center>
 
 </body>
