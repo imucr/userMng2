@@ -47,8 +47,8 @@
 		birth=#{birthDay}, 
 		address=#{address}, 
 		pn=#{telNum}, 
-		pw=#{password} 
-<!--  		updated=#{formattedDate} -->
+		pw=#{password}, 
+  		updated=#{formattedDate} 
 		where user_id=#{userId}
 	</update>
 	

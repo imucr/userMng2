@@ -78,15 +78,15 @@ public class UpdateController {
     	    String telNum = (String) session.getAttribute("telNum");
     	    String password = (String) session.getAttribute("password");
 
-//    	    Date date = new Date();
-//    	    SimpleDateFormat dateFormat = new SimpleDateFormat("M/dd/yy HH:mm");
-//    	    String formattedDate = dateFormat.format(date);
-//    	    		System.out.println("現在日時は"+formattedDate);
+    	    Date date = new Date();
+    	    SimpleDateFormat dateFormat = new SimpleDateFormat("M/dd/yy HH:mm");
+    	    String formattedDate = dateFormat.format(date);
+    	    		System.out.println("現在日時は"+formattedDate);
     	    
     	    
     	    UmsDAO dao = sqlSession.getMapper(UmsDAO.class);
-//    	    dao.update(username, birthDay, address, telNum, password, formattedDate, userId);
-    	    dao.update(username, birthDay, address, telNum, password, userId);
+    	    dao.update(username, birthDay, address, telNum, password, formattedDate, userId);
+//    	    dao.update(username, birthDay, address, telNum, password, userId);
     	    
     	  	return "redirect:/user/update?finish";
       }   
