@@ -3,7 +3,6 @@
 <!-- TODO validation保留-->
 
 <div align="center">
-	<h2>register 'form'</h2>
 
 	<spring:hasBindErrors name="uvo2" />
 	<form action="${pageContext.request.contextPath}/user/register"
@@ -67,6 +66,7 @@
 
 		<input type="submit" name="confirm" value="登録" />
 	</form>
+	
 </div>
 
 

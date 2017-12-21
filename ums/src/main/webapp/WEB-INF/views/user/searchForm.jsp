@@ -1,5 +1,7 @@
 <%@include file="/WEB-INF/views/common/header.jsp"%>
 
+<%@include file="/WEB-INF/views/common/SessionNullOrNot_header.jsp"%>
+
 <div align="center">
 <form action="${pageContext.request.contextPath}/user/search" method="get"> <!-- TODO 後でPOSTに修正 -->
  		ユーザID：<input type="text" name="user_id"/><br/>
@@ -13,5 +15,7 @@
 		<input type="submit" value="検索" />
 	</form>
 </div>
+
+<%@include file="/WEB-INF/views/common/SessionNullOrNot_footer.jsp"%>
 
 <%@include file="/WEB-INF/views/common/footer.jsp"%>
