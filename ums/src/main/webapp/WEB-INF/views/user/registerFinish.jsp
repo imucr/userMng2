@@ -4,8 +4,6 @@
 
 ユーザID：<%=session.getAttribute("userId")%>の登録が完了しました。
 
-<%
-session.invalidate();
-%>
+
 
 <%@include file="/WEB-INF/views/common/footer.jsp"%>

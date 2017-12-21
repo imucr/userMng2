@@ -1,5 +1,7 @@
 <%@include file="/WEB-INF/views/common/header.jsp"%>
 
+<%@include file="/WEB-INF/views/common/SessionNullOrNot_header.jsp"%>
+
 <!-- TODO validation機能実装 -->
 
 <div align="center">
@@ -60,5 +62,6 @@
 </form>
 </div>
 
+<%@include file="/WEB-INF/views/common/SessionNullOrNot_footer.jsp"%>
 
 <%@include file="/WEB-INF/views/common/footer.jsp"%>

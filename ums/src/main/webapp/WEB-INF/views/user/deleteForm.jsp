@@ -1,4 +1,8 @@
 <%@include file="/WEB-INF/views/common/header.jsp"%>
+
+<%@include file="/WEB-INF/views/common/SessionNullOrNot_header.jsp"%>
+
+
 <%@page import="java.io.*"%>
 
 
@@ -44,6 +48,8 @@
 
 
 </div>
+
+<%@include file="/WEB-INF/views/common/SessionNullOrNot_footer.jsp"%>
 
 
 <%@include file="/WEB-INF/views/common/footer.jsp"%>

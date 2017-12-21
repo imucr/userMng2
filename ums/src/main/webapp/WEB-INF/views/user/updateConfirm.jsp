@@ -1,5 +1,7 @@
 <%@include file="/WEB-INF/views/common/header.jsp"%>
 
+<%@include file="/WEB-INF/views/common/SessionNullOrNot_header.jsp"%>
+
 <div align="center">
 
 <form action="${pageContext.request.contextPath}/user/update" method="get"> <!-- FIXME POSTに修正 -->
@@ -48,5 +50,6 @@
 
 </div>
 
+<%@include file="/WEB-INF/views/common/SessionNullOrNot_footer.jsp"%>
 
 <%@include file="/WEB-INF/views/common/footer.jsp"%>

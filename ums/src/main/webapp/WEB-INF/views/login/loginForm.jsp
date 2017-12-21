@@ -1,7 +1,7 @@
 <%@include file="/WEB-INF/views/common/header.jsp"%>
 
 <div align="center">
-<form action="${pageContext.request.contextPath}/top" method="GET"> <!-- FIXME postã«ä¿®æ­£ -->
+<form action="${pageContext.request.contextPath}/login" method="GET"> <!-- FIXME POST -->
 	<table border="0">
 		<tr>
 			<td>ユーザID:</td>
