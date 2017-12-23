@@ -15,8 +15,7 @@ public interface UmsDAO {
       @Param("birth") String birth,
       @Param("address") String address,
       @Param("pn") String pn,
-      @Param("status") String status,
-      @Param("updated") String updated);
+      @Param("status") String status);
   //MEMO Parameter 'パラメーター名' not found. Available parameters are [1, 0, param1, param2]...: パラメーターマッピングできなくて生じる問題。@Paramを使えば解決。ただ宣言だけしておくとどこから来たか分からないから当然。
 
   public ArrayList<UVO> deleteList(String user_id);

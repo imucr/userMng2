@@ -26,10 +26,6 @@
 				<td align="right">電話番号:</td>
 				<td>${deleteList.pn}</td>
 			</tr>
-			<tr>
-				<td align="right">権限:</td>
-				<td>${deleteList.status}</td>
-			</tr>
 
 		</c:forEach>
 	</table>

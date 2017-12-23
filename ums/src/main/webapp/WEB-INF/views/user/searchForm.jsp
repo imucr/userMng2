@@ -9,8 +9,7 @@
  		生年月日：<input type="text" name="birth"/><br/>
  		住所：<input type="text" name="address"/><br/>
  		電話番号：<input type="text" name="pn"/><br/>
- 		権限：<input type="text" name="status"/><br/>
- 		状態：<input type="text" name="updated"/><br/> 
+ 		状態：<input type="text" name="status"/><br/> 
  		
 		<input type="submit" value="検索" />
 	</form>
