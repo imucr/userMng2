@@ -15,7 +15,6 @@
 			<td>生年月日</td>
 			<td>住所</td>
 			<td>電話番号</td>
-			<td>権限</td>
 			<td>状態</td>
 		</tr>
 
@@ -28,8 +27,7 @@
 				<td>${list.birth}</td>
 				<td>${list.address}</td>
 				<td>${list.pn}</td>
-				<td>${list.status}</td>
-				<td>${list.updated}</td>				
+				<td>${list.status}</td>				
 			</tr>
 		</c:forEach>
 	</table>	<br>
