@@ -11,6 +11,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import jp.co.asia.archive.ums.domain.model.UVO;
 import jp.co.asia.archive.ums.domain.model.UVO2;
 import jp.co.asia.archive.ums.domain.repository.UmsDAO;
+import jp.co.asia.archive.ums.validation.UVO2Validator;
+import jp.co.asia.archive.ums.validation.UVO2Validator_forUpdate;
 
 //TODO Javadoc
 
@@ -44,8 +47,13 @@ public class UpdateController {
   }
 
   @RequestMapping(value = "/update", params = "confirm", method = RequestMethod.GET) //FIXME POSTに
-  public String updateConfirm(@ModelAttribute("uvo2") UVO2 uvo2, HttpServletRequest req) {
+  public String updateConfirm(@ModelAttribute("uvo2") UVO2 uvo2, BindingResult br, HttpServletRequest req) {
 
+	  new UVO2Validator_forUpdate().validate(uvo2, br);
+	  if(br.hasErrors()){
+		  return "user/updateForm";
+	  }
+	  
     HttpSession session = req.getSession();
     session.setAttribute("username", uvo2.getUsername());
     session.setAttribute("birthDay", uvo2.getBirthDay());
