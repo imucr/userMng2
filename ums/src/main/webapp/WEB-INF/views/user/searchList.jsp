@@ -31,22 +31,14 @@
 			</tr>
 		</c:forEach>
 	</table>	<br>
-
-<c:forEach items="${list}" var="list">	
-	<form action="${pageContext.request.contextPath}/user/update" method="get">
-		<input type="submit" name="form" value="更新" />
-		<input type="hidden" name="userId" value="${list.user_id}">			
-			<!-- QUESTION JSP ELを活かすため、なんでc:forEachを前後に置かなければならないんだろう ANSWER オブジェクトの内容を出力するには必要、ぐらいで知っておこう-->
-			<!-- MEMO 解決に至るまで：JSTLをhtmlの中で使って動く例をネット上でキーワード検索で見つけた。そして上のコードと何が違うか注目すると、答えが出てきた-->
-	</form>
-</c:forEach>
-
-<c:forEach items="${list}" var="list">	
-<form action="${pageContext.request.contextPath}/user/delete" method="get">
-	<input type="submit" name="form" value="削除" />
-	<input type="hidden" name="userId" value="${list.user_id}">	
+	
+<form action="${pageContext.request.contextPath}/user/update" method="get">
+	<input type="submit" name="formUserId" value="更新" /><!-- FIXME form&userId=xyzに -->
 </form>
-</c:forEach>
+
+<form action="${pageContext.request.contextPath}/user/delete" method="get">
+	<input type="submit" name="formUserId" value="削除" /><!-- FIXME form&userId=xyzに -->
+</form>
 
 </div>
 
