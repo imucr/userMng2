@@ -23,7 +23,7 @@
 
 			<tr>
 				<td align="right">生年月日:</td>
-				<td><input type="text" name="birthDay" value="" /> <form:errors
+				<td><input type="text" name="birthDay" value="" /> (yyyy/MM/dd 形式) <form:errors
 						path="uvo2.birthDay" /></td>
 			</tr>
 
