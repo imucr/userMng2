@@ -46,11 +46,14 @@ public class UpdateController {
     return "user/updateForm";
   }
 
+////////////////////////
   @RequestMapping(value = "/update", params = "confirm", method = RequestMethod.GET) //FIXME POSTに
-  public String updateConfirm(@ModelAttribute("uvo2") UVO2 uvo2, BindingResult br, HttpServletRequest req) {
+  public String updateConfirm(@ModelAttribute("uvo2") UVO2 uvo2, BindingResult br, HttpServletRequest req, Model model) {
 
+	  
 	  new UVO2Validator_forUpdate().validate(uvo2, br);
 	  if(br.hasErrors()){
+		  model.addAttribute("updateList", uvo2);
 		  return "user/updateForm";
 	  }
 	  
