@@ -6,10 +6,10 @@
 
 <div align="center">
 
-<spring:hasBindErrors name="uvo2" />
-<form action="${pageContext.request.contextPath}/user/update" method="get"><!-- FIXME POSTに -->
+<!--<spring:hasBindErrors name="uvo2" />-->
+<form action="${pageContext.request.contextPath}/user/update" method="get" modelAttribute="updateList"><!-- FIXME POSTに -->
 	<table border="0">
-			<c:forEach items="${updateList}" var="updateList"><!-- QUESTION forEach付けないと、値出力できないんだろう-->
+<!--  			<c:forEach items="${updateList}" var="updateList"> QUESTION forEach付けないと、値出力できないんだろう -->
 	
 		<tr>
 			<td align="right">ユーザーID:</td>
@@ -18,7 +18,7 @@
  
 		<tr>
 			<td align="right">名前:</td>
-			<td><input type="text" name="username" value="${updateList.name}"/> <form:errors path="uvo2.username"/> </td>
+			<td><input type="text" name="username" value="${updateList.name}"/> <!--<form:errors path="uvo2.username"/>--> </td>
 		</tr>
 
 		<tr>
@@ -56,7 +56,7 @@
 						path="uvo2.confirmPassword" /> --> </td>
 		</tr>
 
-		</c:forEach>				
+<!--  		</c:forEach>				-->
 	</table>
 	
 	<input type="submit" name="confirm" value="更新"/>
