@@ -36,24 +36,24 @@ public class UpdateController {
       HttpServletRequest req, Model model, @RequestParam("userId") String user_id) {
 
     UmsDAO dao = sqlSession.getMapper(UmsDAO.class);
-    ArrayList<UVO> uvo = dao.updateList(user_id);
+    UVO uvo = dao.updateList(user_id);
     model.addAttribute("updateList", uvo);
 
     HttpSession session = req.getSession();
     session.setAttribute("userId", user_id);
-    System.out.println("SESSIONに値入った");
+    System.out.println(user_id+"はSESSIONに入った");
 
     return "user/updateForm";
   }
 
 ////////////////////////
   @RequestMapping(value = "/update", params = "confirm", method = RequestMethod.GET) //FIXME POSTに
-  public String updateConfirm(@ModelAttribute("uvo2") UVO2 uvo2, BindingResult br, HttpServletRequest req, Model model) {
+  public String updateConfirm(@ModelAttribute("uvo") UVO uvo, @ModelAttribute("uvo2") UVO2 uvo2, BindingResult br, HttpServletRequest req, Model model) {
 
 	  
-	  new UVO2Validator_forUpdate().validate(uvo2, br);
+	  new UVO2Validator_forUpdate().validate(uvo, br);
 	  if(br.hasErrors()){
-		  model.addAttribute("updateList", uvo2);
+		  model.addAttribute("updateList", uvo);
 		  return "user/updateForm";
 	  }
 	  
@@ -73,7 +73,7 @@ public class UpdateController {
 	  HttpSession session=req.getSession();
 	    String user_id = (String) session.getAttribute("userId");
 	    UmsDAO dao=sqlSession.getMapper(UmsDAO.class);
-	    ArrayList<UVO> uvo = dao.updateList(user_id);
+	    UVO uvo = dao.updateList(user_id);
 	    model.addAttribute("updateList", uvo);
 
     return "user/updateForm";

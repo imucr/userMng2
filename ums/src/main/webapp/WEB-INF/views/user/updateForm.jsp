@@ -7,18 +7,17 @@
 <div align="center">
 
 <spring:hasBindErrors name="uvo2" />
-<form action="${pageContext.request.contextPath}/user/update" method="get"><!-- FIXME POSTに -->
-	<table border="0">
-			<c:forEach items="${updateList}" var="updateList"><!-- QUESTION forEach付けないと、値出力できないんだろう-->
-	
+<form action="${pageContext.request.contextPath}/user/update" method="get"> <!-- FIXME POSTに -->
+	<table border="1">
 		<tr>
 			<td align="right">ユーザーID:</td>
-			<td>${updateList.user_id}</td>
+			<td><%=session.getAttribute("userId")%></td>
 		</tr>
- 
+
 		<tr>
 			<td align="right">名前:</td>
-			<td><input type="text" name="username" value="${updateList.name}"/> <form:errors path="uvo2.username"/> </td>
+			<td><input type="text" name="username" value="${updateList.name}"/>  <form:errors
+						path="uvo.name" /></td>
 		</tr>
 
 		<tr>
@@ -55,12 +54,11 @@
 			<td><input type="password" name="confirmPassword" value=""/> <!-- <form:errors
 						path="uvo2.confirmPassword" /> --> </td>
 		</tr>
-
-		</c:forEach>				
 	</table>
 	
 	<input type="submit" name="confirm" value="更新"/>
 </form>
+
 </div>
 
 <%@include file="/WEB-INF/views/common/SessionNullOrNot_footer.jsp"%>
