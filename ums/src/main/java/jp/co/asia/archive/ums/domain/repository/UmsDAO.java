@@ -42,7 +42,7 @@ public interface UmsDAO {
       @Param("formattedDate") String formattedDate,
       @Param("userId") String userId);
 
-  public ArrayList<UVO2> CheckIfIdPwExist(@Param("userId") String userId, @Param("password") String password);
+  public UVO CheckIfIdPwExist(@Param("userId") String userId, @Param("password") String password);
 
   //  public UVO2 IdDuplicateCheck(String userId);
 

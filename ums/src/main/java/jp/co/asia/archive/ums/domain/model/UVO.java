@@ -1,98 +1,72 @@
 package jp.co.asia.archive.ums.domain.model;
 
 public class UVO {
-  String user_id;
-  String name;
-  String birth;
-  String address;
-  String pn;
-  String pw;
-  String status;
-  String updated;
 
+  private String userId;
+  private String username;
+  private String birthDay;
+  private String address;
+  private String telNum;
+  private String password;
+  private String confirmPassword;
+  private String status;
+  private String updated;
+  
   public UVO() {}
 
-  public UVO(
-      String user_id,
-      String name,
-      String birth,
-      String address,
-      String pn,
-      String pw,
-      String status,
-      String updated) {
-    super();
-    this.user_id = user_id;
-    this.name = name;
-    this.birth = birth;
-    this.address = address;
-    this.pn = pn;
-    this.pw = pw;
-    this.status = status;
-    this.updated = updated;
-  }
+public String getUserId() {
+return userId;}
 
-  public String getUser_id() {
-    return user_id;
-  }
+public void setUserId(String userId) {
+this.userId = userId;}
 
-  public void setUser_id(String user_id) {
-    this.user_id = user_id;
-  }
+public String getUsername() {
+return username;}
 
-  public String getName() {
-    return name;
-  }
+public void setUsername(String username) {
+this.username = username;}
 
-  public void setName(String name) {
-    this.name = name;
-  }
+public String getBirthDay() {
+return birthDay;}
 
-  public String getBirth() {
-    return birth;
-  }
+public void setBirthDay(String birthDay) {
+this.birthDay = birthDay;}
 
-  public void setBirth(String birth) {
-    this.birth = birth;
-  }
+public String getAddress() {
+return address;}
 
-  public String getAddress() {
-    return address;
-  }
+public void setAddress(String address) {
+this.address = address;}
 
-  public void setAddress(String address) {
-    this.address = address;
-  }
+public String getTelNum() {
+return telNum;}
 
-  public String getPn() {
-    return pn;
-  }
+public void setTelNum(String telNum) {
+this.telNum = telNum;}
 
-  public void setPn(String pn) {
-    this.pn = pn;
-  }
+public String getPassword() {
+return password;}
 
-  public String getPw() {
-    return pw;
-  }
+public void setPassword(String password) {
+this.password = password;}
 
-  public void setPw(String pw) {
-    this.pw = pw;
-  }
+public String getConfirmPassword() {
+return confirmPassword;}
 
-  public String getStatus() {
-    return status;
-  }
+public void setConfirmPassword(String confirmPassword) {
+this.confirmPassword = confirmPassword;}
 
-  public void setStatus(String status) {
-    this.status = status;
-  }
+public String getStatus() {
+return status;}
 
-  public String getUpdated() {
-    return updated;
-  }
+public void setStatus(String status) {
+this.status = status;}
 
-  public void setUpdated(String updated) {
-    this.updated = updated;
-  }
+public String getUpdated() {
+return updated;}
+
+public void setUpdated(String updated) {
+this.updated = updated;}
+
+
 }
