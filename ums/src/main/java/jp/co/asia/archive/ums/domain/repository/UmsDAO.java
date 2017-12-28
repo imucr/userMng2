@@ -31,7 +31,7 @@ public interface UmsDAO {
       @Param("password") String password,
       @Param("formattedDate") String formattedDate);
 
-  public ArrayList<UVO> updateList(String user_id);
+  public UVO updateList(String user_id);
 
   public void update(
       @Param("username") String username,
