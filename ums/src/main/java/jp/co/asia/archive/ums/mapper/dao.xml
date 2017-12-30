@@ -50,8 +50,8 @@
 		where user_id=#{userId}
 	</update>
 
-	<select id="CheckIfIdPwExist" parameterType="map"
-		resultType="jp.co.asia.archive.ums.domain.model.UVO2">
+	<select id="CheckIfIdPwExist" parameterType="Map"
+		resultType="jp.co.asia.archive.ums.domain.model.UVO">
 		select user_id from t_user where
 		user_id=#{userId} and pw=#{password} 
 	</select>

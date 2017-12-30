@@ -6,7 +6,6 @@
 
 <div align="center">
 
-<spring:hasBindErrors name="uvo2" />
 <form action="${pageContext.request.contextPath}/user/update" method="get"> <!-- FIXME POSTに -->
 	<table border="1">
 		<tr>
@@ -16,8 +15,7 @@
 
 		<tr>
 			<td align="right">名前:</td>
-			<td><input type="text" name="username" value="${updateList.name}"/>  <form:errors
-						path="uvo.name" /></td>
+			<td><input type="text" name="username" value="${updateList.name}"/></td>
 		</tr>
 
 		<tr>
