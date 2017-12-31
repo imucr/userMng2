@@ -16,28 +16,27 @@
 ## Demo
 後日添付予定
 
-## Requirement
-* JAVA 1.8.0_144
+## Requirements
+* OS: macOS High Sierra
+* JDK 1.8.0_144
+* Spring 3.1.1.RELEASE
 * Pivotal tc Server v3.0 - v3.1
 * MySQL  Ver 14.14 Distrib 5.7.20, for macos10.12 (x86_64) 
-
 * その他: pom.xmlに全て定義されている（後述）
 
-* ツール
- - Version: 3.7.3.RELEASE
- - MySQLWorkbench 6.3.9 (option)
+## Tools
+* Version: STS 3.7.3.RELEASE
+* MySQLWorkbench 6.3.9 (option)
 
 ## How to start
 1. [javaインストール(Mac)] (https://weblabo.oscasierra.net/java-install-oracle-jdk8-macosx/)
-
 
 2. [MySQLインストール(Mac)]
 (https://www.youtube.com/watch?v=UcpHkYfWarM)
 
 3. [STSインストール](https://spring.io/tools/sts/all)
 
-
-4. Pivotal tc Server: 
+4. Pivotal tc Server設定: 
 STSインストールすると、その中で現れる。
 STS → Servers → New → Server → Pivotal tc Server → 経路追加　→ Finish
 
