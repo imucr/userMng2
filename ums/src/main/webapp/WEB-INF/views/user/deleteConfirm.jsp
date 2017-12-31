@@ -5,8 +5,7 @@
 <div align="center">
 
 	<table border="0">
-<!--		<c:forEach items="${deleteList}" var="deleteList"> -->
-<form modelAttribute="deleteList">
+		<c:forEach items="${deleteList}" var="deleteList">
 			<tr>
 				<td align="right">ユーザID:</td>
 				<td>${deleteList.user_id}</td>
@@ -28,8 +27,7 @@
 				<td>${deleteList.pn}</td>
 			</tr>
 
-</form>
-<!--  		</c:forEach> -->
+		</c:forEach>
 	</table>
 
 	<form action="${pageContext.request.contextPath}/user/delete"

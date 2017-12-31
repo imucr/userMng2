@@ -19,8 +19,7 @@
 		</tr>
 
 		  
-<!--  		<c:forEach items="${list}" var="list"> -->
-<form modelAttribute="list">
+		<c:forEach items="${list}" var="list">
 			<tr>
 				<td></td>
 				<td>${list.user_id}</td>
@@ -30,25 +29,24 @@
 				<td>${list.pn}</td>
 				<td>${list.status}</td>				
 			</tr>
-			</form>
-<!--  		</c:forEach> -->
+		</c:forEach>
 	</table>	<br>
 
-<!--<c:forEach items="${list}" var="list">	-->
-	<form action="${pageContext.request.contextPath}/user/update" method="get" modelAttribute="list">
+<c:forEach items="${list}" var="list">	
+	<form action="${pageContext.request.contextPath}/user/update" method="get">
 		<input type="submit" name="form" value="更新" />
 		<input type="hidden" name="userId" value="${list.user_id}">			
 			<!-- QUESTION JSP ELを活かすため、なんでc:forEachを前後に置かなければならないんだろう ANSWER オブジェクトの内容を出力するには必要、ぐらいで知っておこう-->
 			<!-- MEMO 解決に至るまで：JSTLをhtmlの中で使って動く例をネット上でキーワード検索で見つけた。そして上のコードと何が違うか注目すると、答えが出てきた-->
 	</form>
-<!--</c:forEach>-->
+</c:forEach>
 
-<!--<c:forEach items="${list}" var="list">	-->
-<form action="${pageContext.request.contextPath}/user/delete" method="get" modelAttribute="list">
+<c:forEach items="${list}" var="list">	
+<form action="${pageContext.request.contextPath}/user/delete" method="get">
 	<input type="submit" name="form" value="削除" />
 	<input type="hidden" name="userId" value="${list.user_id}">	
 </form>
-<!--</c:forEach>-->
+</c:forEach>
 
 </div>
 
