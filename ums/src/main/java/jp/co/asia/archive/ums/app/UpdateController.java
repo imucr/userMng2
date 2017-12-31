@@ -11,7 +11,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,8 +19,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import jp.co.asia.archive.ums.domain.model.UVO;
 import jp.co.asia.archive.ums.domain.model.UVO2;
 import jp.co.asia.archive.ums.domain.repository.UmsDAO;
-import jp.co.asia.archive.ums.validation.UVO2Validator;
-import jp.co.asia.archive.ums.validation.UVO2Validator_forUpdate;
 
 //TODO Javadoc
 
@@ -36,27 +33,19 @@ public class UpdateController {
       HttpServletRequest req, Model model, @RequestParam("userId") String user_id) {
 
     UmsDAO dao = sqlSession.getMapper(UmsDAO.class);
-    UVO uvo = dao.updateList(user_id);
+    ArrayList<UVO> uvo = dao.updateList(user_id);
     model.addAttribute("updateList", uvo);
 
     HttpSession session = req.getSession();
     session.setAttribute("userId", user_id);
-    System.out.println(user_id+"はSESSIONに入った");
+    System.out.println("SESSIONに値入った");
 
     return "user/updateForm";
   }
 
-////////////////////////
   @RequestMapping(value = "/update", params = "confirm", method = RequestMethod.GET) //FIXME POSTに
-  public String updateConfirm(@ModelAttribute("uvo2") UVO uvo2, BindingResult br, HttpServletRequest req, Model model) {
+  public String updateConfirm(@ModelAttribute("uvo2") UVO2 uvo2, HttpServletRequest req) {
 
-	  
-//	  new UVO2Validator_forUpdate().validate(uvo, br);
-//	  if(br.hasErrors()){
-//		  model.addAttribute("updateList", uvo);
-//		  return "user/updateForm";
-//	  }
-	  
     HttpSession session = req.getSession();
     session.setAttribute("username", uvo2.getUsername());
     session.setAttribute("birthDay", uvo2.getBirthDay());
@@ -73,7 +62,7 @@ public class UpdateController {
 	  HttpSession session=req.getSession();
 	    String user_id = (String) session.getAttribute("userId");
 	    UmsDAO dao=sqlSession.getMapper(UmsDAO.class);
-	    UVO uvo = dao.updateList(user_id);
+	    ArrayList<UVO> uvo = dao.updateList(user_id);
 	    model.addAttribute("updateList", uvo);
 
     return "user/updateForm";

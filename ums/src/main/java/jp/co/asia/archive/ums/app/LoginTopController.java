@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import jp.co.asia.archive.ums.domain.model.UVO;
+import jp.co.asia.archive.ums.domain.model.UVO2;
 import jp.co.asia.archive.ums.domain.repository.UmsDAO;
 
 //TODO Javadoc
@@ -32,10 +32,10 @@ public class LoginTopController {
   }
 
   @RequestMapping(value = "/login", method = RequestMethod.GET)
-  public String loginCheck(@ModelAttribute("uvo") UVO uvo, HttpServletRequest req, Model model) {
+  public String loginCheck(@ModelAttribute("uvo2") UVO2 uvo2, HttpServletRequest req, Model model) {
 
-    String UserId = uvo.getUserId();
-    String password = uvo.getPassword();
+    String UserId = uvo2.getUserId();
+    String password = uvo2.getPassword();
     HttpSession session = req.getSession();
 
     if (CheckIfIdPwExist(UserId, password)) {
@@ -52,8 +52,8 @@ public class LoginTopController {
 
     UmsDAO dao = sqlSession.getMapper(UmsDAO.class);
 
-    UVO uvo = dao.CheckIfIdPwExist(userId, password);
-    if (uvo==null) {
+    ArrayList<UVO2> uvo2 = dao.CheckIfIdPwExist(userId, password);
+    if (uvo2.isEmpty()) {
       return false;
     } else {
       return true;
