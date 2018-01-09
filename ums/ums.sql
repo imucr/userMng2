@@ -18,3 +18,15 @@ insert into t_user values('000a', 'applea', '1991/1/1a', '東京都a', '03111232
 insert into t_user values('b', 'b', 'b', 'b', 'b', 'b', 'b', 'b');
 
 
+create table t_role(
+	user_id varchar(20) not null,
+    roles varchar(20) not null, 
+    primary key (user_id, roles),
+	CONSTRAINT `aaaa` FOREIGN KEY (`user_id`) REFERENCES `t_user` (`user_id`)
+
+);
+
+drop table t_role;
+
+insert into t_role values('4545', 'ssssss');
+
