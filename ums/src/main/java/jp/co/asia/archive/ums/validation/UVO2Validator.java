@@ -58,6 +58,13 @@ public class UVO2Validator implements Validator {
         errors.rejectValue("telNum", "telNumMessage");
     }
     
+    //checkbox 一つ以上必ず選択
+    String[] roles=uvo2.getRoles();
+    String empty="";
+    if(roles.equals(empty)){
+        errors.rejectValue("roles", "rolesMessage");
+    }
+    
     //password 半角英数6文字以上
     String password=uvo2.getPassword();
     if(password.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{6,}$") == false){
