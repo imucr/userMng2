@@ -55,5 +55,19 @@
 		select user_id from t_user where
 		user_id=#{userId} and pw=#{password} 
 	</select>
-		
+
+	<select id="CheckIfInit" parameterType="map"
+		resultType="jp.co.asia.archive.ums.domain.model.UVO2">
+		select pw from t_user where
+		user_id=#{userId} and status="INIT"
+	</select>
+
+	<update id="passwordUpdate" parameterType="String">	
+		update t_user set 
+		pw=#{password}, 
+		status="ACTV", 
+  		updated=#{formattedDate} 
+		where user_id=#{userId}
+	</update>
+			
 </mapper>
