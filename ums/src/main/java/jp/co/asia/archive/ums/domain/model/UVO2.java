@@ -7,28 +7,11 @@ public class UVO2 {
   private String birthDay;
   private String address;
   private String telNum;
+  private String[] roles;
   private String password;
   private String confirmPassword;
 
   public UVO2() {}
-
-  public UVO2( //QUESTION このコードのままでは、オブジェクト生成と同時にパラメターを入れなければならないんじゃない？でもなんでそうしなくてもよく作動するんだろう
-      String userId,
-      String username,
-      String birthDay,
-      String address,
-      String telNum,
-      String password,
-      String confirmPassword) {
-    super();
-    this.userId = userId;
-    this.username = username;
-    this.birthDay = birthDay;
-    this.address = address;
-    this.telNum = telNum;
-    this.password = password;
-    this.confirmPassword = confirmPassword;
-  }
 
   public String getUserId() {
     return userId;
@@ -68,6 +51,14 @@ public class UVO2 {
 
   public void setTelNum(String telNum) {
     this.telNum = telNum;
+  }
+
+  public String[] getRoles() {
+    return roles;
+  }
+
+  public void setRoles(String[] roles) {
+    this.roles = roles;
   }
 
   public String getPassword() {

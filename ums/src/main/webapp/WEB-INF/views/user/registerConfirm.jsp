@@ -36,11 +36,11 @@
 				<td><%=session.getAttribute("telNum")%></td>
 			</tr>
 
-			<%-- 
+			 
 		<tr>
 			<td align="right">権限:</td>
-			<td><%=result(roles)%></td>
-		</tr>--%>
+			<td><%=session.getAttribute("roles")%></td>
+		</tr>
 
 
 		</table>

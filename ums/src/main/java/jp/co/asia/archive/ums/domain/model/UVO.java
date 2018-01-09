@@ -12,26 +12,6 @@ public class UVO {
 
   public UVO() {}
 
-  public UVO(
-      String user_id,
-      String name,
-      String birth,
-      String address,
-      String pn,
-      String pw,
-      String status,
-      String updated) {
-    super();
-    this.user_id = user_id;
-    this.name = name;
-    this.birth = birth;
-    this.address = address;
-    this.pn = pn;
-    this.pw = pw;
-    this.status = status;
-    this.updated = updated;
-  }
-
   public String getUser_id() {
     return user_id;
   }

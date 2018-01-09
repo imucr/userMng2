@@ -1,7 +1,9 @@
 package jp.co.asia.archive.ums.app;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,9 +28,19 @@ public class RegisterController {
 
   @Autowired private SqlSession sqlSession;
 
+  private List<String> getList(){
+	  List<String> list=(List<String>) new ArrayList<String>();
+	  list.add("ADMIN");
+	  list.add("USER");
+	  return list;
+	 
+  }
+  
   @RequestMapping(value = "/register", params = "form", method = RequestMethod.GET)
-  public String registerForm() {
-
+  public String registerForm(Model model) {
+	  UVO2 uvo2 = new UVO2();
+	  model.addAttribute("uvo2", uvo2); //QUESTION これはこの段階でなんで必要なんだろう。書かないとエラー出る。
+	  model.addAttribute("checkItems", getList());
     return "user/registerForm";
   }
 
@@ -53,6 +65,7 @@ public class RegisterController {
     session.setAttribute("birthDay", uvo2.getBirthDay());
     session.setAttribute("address", uvo2.getAddress());
     session.setAttribute("telNum", uvo2.getTelNum());
+    session.setAttribute("roles", uvo2.getRoles());
     session.setAttribute("password", uvo2.getPassword());
     session.setAttribute("confirmPassword", uvo2.getConfirmPassword());
 

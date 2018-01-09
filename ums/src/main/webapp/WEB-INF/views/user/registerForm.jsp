@@ -42,6 +42,10 @@
 		<tr>
 			<td align="right">権限:</td>
 			<td>
+			
+				<form:checkboxes path="roles" items="${checkItems}" delimiter=" " /> <form:errors
+						path="roles" />
+				
 <!-- 				<input type="checkbox" name="roles">ADMIN
 				<input type="checkbox" name="roles2">USER  -->
 							
