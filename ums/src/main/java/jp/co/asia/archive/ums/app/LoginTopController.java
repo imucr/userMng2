@@ -42,7 +42,14 @@ public class LoginTopController {
       session.setAttribute("LOGIN.OK", UserId);
       String check = (String) session.getAttribute("LOGIN.OK");
       System.out.println("UserId" + check + "はDBに存在していたので、セッションに入れた");
-      return "top/menu";
+      
+      if(CheckIfInit(UserId)){
+    	  	//return "redirect:/password/change?form"; //QUESTION なんでredirectの時はmodelの内容が消えるんだろう？
+    	  	return "/password/changeForm";
+      }else{
+    	  return "top/menu";
+      }
+      
     } else {
       return "redirect:/login?form"; //QUESTION どうして「login?form」だけ書くと作動しない？
     }
@@ -60,6 +67,19 @@ public class LoginTopController {
     }
   }
 
+  
+  private boolean CheckIfInit(String userId) {
+
+	    UmsDAO dao = sqlSession.getMapper(UmsDAO.class);
+
+	    ArrayList<UVO2> uvo2 = dao.CheckIfInit(userId);
+	    if (uvo2.isEmpty()) {
+	      return false;
+	    } else {
+	      return true;
+	    }
+	  }
+  
   @RequestMapping(
     value = "/top",
     method = RequestMethod.GET
