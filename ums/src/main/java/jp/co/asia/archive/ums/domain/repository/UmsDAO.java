@@ -50,6 +50,9 @@ public interface UmsDAO {
 	      @Param("password") String password, 
 	      @Param("formattedDate") String formattedDate, 
 	      @Param("userId") String userId);
+
+  
+  public void roleRegister(@Param("userId") String userId, @Param("roles") String roles);
   
   //  public UVO2 IdDuplicateCheck(String userId);
 

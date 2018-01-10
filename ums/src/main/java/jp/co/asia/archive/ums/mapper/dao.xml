@@ -11,6 +11,13 @@
 		(#{userId},#{username},#{birthDay},#{address},#{telNum},#{password},"INIT",#{formattedDate})
 	</insert>
 
+	<insert id="roleRegister">
+		insert into t_role (user_id, roles)
+		values
+		(#{userId}, #{roles})
+	</insert>
+
+
 	<select id="list" parameterType="map"
 		resultType="jp.co.asia.archive.ums.domain.model.UVO">
 		select user_id, name, birth, address, pn, status from t_user where
