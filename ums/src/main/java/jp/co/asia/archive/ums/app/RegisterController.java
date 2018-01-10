@@ -67,8 +67,20 @@ public class RegisterController {
     session.setAttribute("address", uvo2.getAddress());
     session.setAttribute("telNum", uvo2.getTelNum());
 
-    String selected = Arrays.toString(uvo2.getRoles());
-    session.setAttribute("roles", selected);
+    //String selected = Arrays.toString(uvo2.getRoles());
+
+    String[] items = uvo2.getRoles();
+
+    for (int i=0; i<items.length; i++){
+    		System.out.println("配列の中身は"+items[i]); 
+    }
+    
+//    ＊参考
+//    for (int i = 0;i > items.length; i ++) {
+//	  System.out.println(items[i]);
+//	}
+  
+    session.setAttribute("roles", items);
     
     session.setAttribute("password", uvo2.getPassword());
     session.setAttribute("confirmPassword", uvo2.getConfirmPassword());
@@ -92,7 +104,10 @@ public class RegisterController {
     String birthDay = (String) session.getAttribute("birthDay");
     String address = (String) session.getAttribute("address");
     String telNum = (String) session.getAttribute("telNum");
-    String roles = (String) session.getAttribute("roles");
+    
+    String[] roles_dontUse = (String[]) session.getAttribute("roles");
+    String roles=Arrays.toString(roles_dontUse); //FIXME ADMIN, USER全部選んだ場合、DBに別の行として入られるように
+    
     String password = (String) session.getAttribute("password");
 
     // MEMO Q. How to get client current date and time in server side ??? A. Get the time from the client side and send it to server. →全然効かない

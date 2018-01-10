@@ -41,12 +41,10 @@ public class SearchController {
        * @return View名
        */
       @RequestMapping(value = "/search", method = RequestMethod.GET) //TODO 後でPOSTに変更予定
-      public String searchList(Model model, @Param("user_id") String user_id, @Param("name") String name, @Param("birth") String birth, @Param("address") String address, @Param("pn") String pn, @Param("status") String status) { //TODO Parameter無しにする
-
-        System.out.println("-----条件適用List呼ぶ-----");
+      public String searchList(Model model, @Param("user_id") String user_id, @Param("name") String name, @Param("birth") String birth, @Param("address") String address, @Param("pn") String pn, @Param("roles") String roles, @Param("status") String status) { //TODO Parameter無しにする
         
         UmsDAO dao=sqlSession.getMapper(UmsDAO.class);
-        ArrayList<UVO> uvo = dao.list(user_id, name, birth, address, pn, status);
+        ArrayList<UVO> uvo = dao.list(user_id, name, birth, address, pn, status); //TODO rolesを、t_roleテーブルjoinして処理
         model.addAttribute("list", uvo);
 
         return "user/searchList";
