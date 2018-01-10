@@ -2,6 +2,7 @@ package jp.co.asia.archive.ums.app;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -49,15 +50,15 @@ public class RegisterController {
     params = "confirm",
     method = RequestMethod.GET
   ) //FIXME POSTに修正
-  public String registerConfirm(@ModelAttribute("uvo2") UVO2 uvo2, BindingResult br, HttpServletRequest req) {
+  public String registerConfirm(@ModelAttribute UVO2 uvo2, BindingResult br, HttpServletRequest req) {
     //QUESTION ただのParam vs. RequestParam?
 	//QUESTION ModelAttributeは単にコマンドオブジェクト名を短くする機能だけではないみたい。これつけないとViewでエラーメッセージ出ない
     //TODO checkboxの値も受け入れるように
 
-	  new UVO2Validator().validate(uvo2, br);
-	  if(br.hasErrors()){
-		  return "user/registerForm";
-	  }
+//	  new UVO2Validator().validate(uvo2, br);
+//	  if(br.hasErrors()){
+//		  return "user/registerForm";
+//	  }
 	  
     HttpSession session = req.getSession();
     session.setAttribute("userId", uvo2.getUserId());
@@ -65,7 +66,10 @@ public class RegisterController {
     session.setAttribute("birthDay", uvo2.getBirthDay());
     session.setAttribute("address", uvo2.getAddress());
     session.setAttribute("telNum", uvo2.getTelNum());
-    session.setAttribute("roles", uvo2.getRoles());
+
+    String selected = Arrays.toString(uvo2.getRoles());
+    session.setAttribute("roles", selected);
+    
     session.setAttribute("password", uvo2.getPassword());
     session.setAttribute("confirmPassword", uvo2.getConfirmPassword());
 
@@ -88,6 +92,7 @@ public class RegisterController {
     String birthDay = (String) session.getAttribute("birthDay");
     String address = (String) session.getAttribute("address");
     String telNum = (String) session.getAttribute("telNum");
+    String roles = (String) session.getAttribute("roles");
     String password = (String) session.getAttribute("password");
 
     // MEMO Q. How to get client current date and time in server side ??? A. Get the time from the client side and send it to server. →全然効かない
@@ -99,7 +104,7 @@ public class RegisterController {
     
     UmsDAO dao = sqlSession.getMapper(UmsDAO.class);
     dao.register(userId, username, birthDay, address, telNum, password, formattedDate);
-
+    dao.roleRegister(userId, roles);// FIXME 配列の内容を分けて入れるように
     return "redirect:/user/register?finish";
   }
 
