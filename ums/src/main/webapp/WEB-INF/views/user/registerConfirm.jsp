@@ -39,7 +39,16 @@
 			 
 		<tr>
 			<td align="right">権限:</td>
-			<td><%=session.getAttribute("roles")%></td>
+			<td>
+				
+				<%=session.getAttribute("roles")%> <!-- FIXME 配列内容出力 -->
+				
+				<%--参考
+ 					<%=String[] array = (String[])session.getAttribute("roles")%>
+					<c:forEach items=array var="list">
+					${list.user_id}
+					</c:forEach> --%>
+			</td>
 		</tr>
 
 
