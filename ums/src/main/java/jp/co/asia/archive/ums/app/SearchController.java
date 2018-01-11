@@ -44,7 +44,7 @@ public class SearchController {
       public String searchList(Model model, @Param("user_id") String user_id, @Param("name") String name, @Param("birth") String birth, @Param("address") String address, @Param("pn") String pn, @Param("roles") String roles, @Param("status") String status) { //TODO Parameter無しにする
         
         UmsDAO dao=sqlSession.getMapper(UmsDAO.class);
-        ArrayList<UVO> uvo = dao.list(user_id, name, birth, address, pn, status); //TODO rolesを、t_roleテーブルjoinして処理
+        ArrayList<UVO> uvo = dao.list(user_id, name, birth, address, pn, roles, status); //TODO rolesを、t_roleテーブルjoinして処理
         model.addAttribute("list", uvo);
 
         return "user/searchList";

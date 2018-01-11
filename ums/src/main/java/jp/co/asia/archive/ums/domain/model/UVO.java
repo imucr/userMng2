@@ -6,6 +6,7 @@ public class UVO {
   String birth;
   String address;
   String pn;
+  String roles; //FIXME ADMIN, USERを、t_roleで別の行に入れる時、それに合わせて修正
   String pw;
   String status;
   String updated;
@@ -50,6 +51,14 @@ public class UVO {
 
   public void setPn(String pn) {
     this.pn = pn;
+  }
+
+  public String getRoles() {
+    return roles;
+  }
+
+  public void setRoles(String roles) {
+    this.roles = roles;
   }
 
   public String getPw() {
