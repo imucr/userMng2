@@ -30,3 +30,5 @@ drop table t_role;
 
 insert into t_role values('4545', 'ssssss');
 
+select t_user.user_id, t_user.name, t_user.birth, t_user.address, t_user.pn, t_role.roles, t_user.status from t_user inner join t_role on t_user.user_id=t_role.user_id where t_user.user_id='4535';
+
